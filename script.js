@@ -6,7 +6,8 @@ function addGrid(counter) {
         container.appendChild(grid);
         counter--;
     }
-}
+};
+
 
 addGrid(16);
 
@@ -19,6 +20,19 @@ function getRandomColor() {
         rgb[i] = randomColor;
     }
     return rgb
+};
+
+function getUserInput() {
+    let userInput = Number(prompt
+        ("Pick a grid size! For instance '8' for an 8x8 grid."));
+
+    while (isNaN(userInput) || typeof userInput !== 'number' ||
+     userInput > 100 || userInput === undefined) {
+        userInput = Number(prompt
+            (`Invalid input. Pick a grid size! For instance '8' for an 8x8 grid.
+Only numbers up to 100 are accepted.`));
+    }
+    return userInput;
 }
 
 
@@ -37,4 +51,11 @@ grids.forEach(grid => {
     });
 });
 
-
+const button = document.querySelector("button");
+button.addEventListener("click", function () {
+    const container = document.querySelector("div");
+    let userInput = getUserInput();
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+});
