@@ -14,10 +14,6 @@ html {
     border: 1px solid black;
 }
 
-.grid:hover {
-    background-color: red;
-}
-
 .container {
     padding: 0;
     margin: auto;
